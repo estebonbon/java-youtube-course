@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<HTML>
+  <head>
+    <title>Objects Practise</title>
+  </head>
+
+  <body>
+    <script>
+
+      /* Object */
+      const basketball = {
+        name: 'basketball',
+        price: 2095,
+      }
+
+      function display() {
+        console.log(basketball)
+      };
+
+      display();
+
+      /* Dot notation */
+      basketball.price += 500;
+
+      display();
+
+      /* Bracket notation */
+
+      basketball['delivery-time'] = '3 days';
+      
+      display();
+
+      /* Compare price function */
+
+      function comparePrice(product1, product2) {
+        
+        if(product1.price > product2.price) {
+          return product1
+        } else if (product2.price > product1.price){
+          return product2
+        }
+      }
+
+      /* It is important to remember that functions can return any value you desire even if it is not directly related to the function. */
+
+      const product1 = {
+        name: 'dance shoes',
+        price: 3075,
+      };
+
+      const product2 = {
+        name: 'surf board',
+        price: 5000,
+      };
+
+      console.log(comparePrice(product1, product2));
+
+      /* PRACTISE 8e */
+      /* The console.log can be placed outside of the if statement of the function */
+
+      function isSameProduct(product1, product2) {
+          if(product1.name === product2.name && product1.price === product2.price) {
+            return true
+          } else {
+            return false
+          }
+      };
+
+      const soccerBall = {
+        name: 'nike',
+        price: 8777,
+      }
+
+      const shoes = {
+        name: 'nike',
+        price: 8777,
+      };
+
+      console.log(isSameProduct(shoes, soccerBall));
+
+      /* Practise 8f */
+      /* Methods are functions stored in objects whos direct responsibility is to modify or access the objects properties, while functions can take in arguments and return output values */
+
+      console.log('Good morning'.toLowerCase());
+      console.log('TESTING'.toLowerCase());
+
+      /* Here the .toLowerCase() is a method. That converts any string and will make it lowercase. */
+
+      /* Practise 8G */
+
+      const mood = 'Happy! ';
+
+      console.log(`I feel ${mood.repeat(3)}`);
+
+      const test = 'test';
+
+      console.log(test.repeat(2));
+
+      /* Here the .repeat() method allows the user to repeat a string as many times as they like */
+
+      
+
+
+
+    </script>
+  </body>
+</HTML>
