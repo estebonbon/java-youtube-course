@@ -6,15 +6,23 @@
 
   <body>
     <button>Hello</button>
+    <button class="js-button">Second Button</button>
     
     <script>
 
-      document.querySelector() /* Allows you to grab any HTML element and place it on the webpage using Javescript */
+      console.log(document.querySelector('button'));
+
+      document.querySelector('button').innerHTML = 'Changed';
+
+      const buttonElem = document.querySelector('.js-button');
+      console.log(buttonElem);
+      
+      /* Allows you to grab any HTML element and place it on the webpage using Javescript */
       /*
       document.body.innerHTML = 'hello';
       document.title = 'Good Job'; */
 
-      console.log(document.body);
+      /* console.log(document.body);
 
       console.log(document.body.innerHTML);
 
@@ -24,3 +32,4 @@
 
 
 </html>
+Today I reviewed how elements can be selected, by giving them a class! And the using document.querySelector to change the text within them. Variables can also be assigned the role to stored HTML elements the Javascript can use and Implement anywhere on the page.
