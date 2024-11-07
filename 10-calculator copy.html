@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+
+      body{
+        background-color: black;
+      }
+      .style-number-display{
+        font-size: 45px;
+        font-family: Arial;
+        color: white;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+
+      h1 {
+        color: blanchedalmond;
+        text-align: center;
+      }
+
+      .calculator-button{
+        height: 60px;
+        width: 60px;
+        border-radius: 50px;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        margin-right: 5px;
+      }
+
+      .clear-button{
+        font-size: 20px;
+      }
+
+      .gray-button{
+        background-color: rgb(50,50,50);
+        color: white;
+      }
+
+      .orange-button{
+        background-color: rgb(250,160,10);
+        color: #000000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1> Free Calculator </h1>
+
+    <p class="number-display style-number-display"></p>
+    
+    <p>
+      <button
+        onclick="
+        updateCalculation('1');"
+        class="calculator-button gray-button"
+        >1</button>
+
+      <button
+        onclick="
+        updateCalculation('2');"
+         class="calculator-button gray-button"
+        >2</button>
+
+      <button
+        onclick="
+        updateCalculation('3');"
+        class="calculator-button gray-button"
+        >3</button>
+
+      <button
+        onclick="
+        updateCalculation(' + ');" 
+        class="calculator-button orange-button"
+        >+</button>
+    </p>
+
+    <p>
+      <button
+        onclick="
+        updateCalculation('4');"  
+        class="calculator-button gray-button"
+      >4</button>
+
+      <button
+        onclick="
+        updateCalculation('5');"
+        class="calculator-button gray-button"
+      >5</button>
+
+      <button
+        onclick="
+        updateCalculation('6');"
+        class="calculator-button gray-button"      
+        >6</button>
+
+      <button
+        onclick="
+        updateCalculation(' - ');"
+        class="calculator-button orange-button"
+      >-</button>
+    </p>
+
+    <p>
+      <button
+        onclick="
+        updateCalculation('7');"
+        class="calculator-button gray-button"
+        >7</button>
+
+      <button
+        onclick="
+        updateCalculation('8');"
+        class="calculator-button gray-button"
+        >8</button>
+
+      <button
+        onclick="
+        updateCalculation('9');"
+        class="calculator-button gray-button"
+        >9</button>
+
+      <button
+        onclick="
+        updateCalculation(' * ');"
+        class="calculator-button orange-button"
+        >x</button>
+    </p>
+
+    <p>
+      <button
+        onclick="
+        updateCalculation('0');"
+        class="calculator-button gray-button"
+      >0</button>
+
+      <button
+        onclick="
+        updateCalculation('.');"
+        class="calculator-button gray-button"
+      >.</button>
+
+      <button
+        onclick="
+        calculation = eval(calculation);
+        displayNumber(calculation);
+
+        console.log(calculation);
+        localStorage.setItem('calculation', calculation);"
+        class="calculator-button gray-button"
+        >=</button>
+
+        <!--//eval (...) converts the calculation string into actual math
+        //Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes. -->
+              
+
+      <button
+        onclick="
+        updateCalculation(' / ');"
+        class="calculator-button orange-button"
+      >÷</button>
+    </p>
+
+    <p>
+      <button
+        onclick="
+        calculation = '';
+        console.log(`Calculator Reset`);
+        localStorage.setItem('calculation', calculation);
+        displayNumber(calculation);"
+        class="calculator-button clear-button gray-button"
+      >Clear</button>
+    </p>
+    
+  </body>
+
+  <script>
+    let calculation = localStorage.getItem('calculation') || '';
+    displayNumber(calculation);
+    
+    function updateCalculation(value) {
+      calculation += value;
+      console.log(calculation);
+      displayNumber(calculation);
+      localStorage.setItem('calculation', calculation);
+    }
+
+    /* In the code above the variable calculation is given a value. Then it is displayed on the screen. Finally it is stored into local storage. UpdateCalculation only works with the string, and is not incharge of the equation being evaluated. That is why, displayNumber() must be used where the "=" icon is. */
+
+    function displayNumber() {
+      document.querySelector('.number-display')
+        .innerHTML = calculation;
+    }
+
+  </script>
+</html>
